@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '../AuthContext'
+import { useAuth } from '../../Atentication/AuthContext'
 
 export default function Layout({ children }) {
   const { perfil, cerrarSesion } = useAuth()
