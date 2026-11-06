@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react'
-import { supabase } from './supabase'
+import { supabase } from '../supabase/supabase'
 
 const AuthContext = createContext()
 
@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
   const [cargando, setCargando] = useState(true)
 
   useEffect(() => {
-    const sesion = supabase.auth.onAuthStateChange(async (event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (session?.user) {
         setUsuario(session.user)
         const { data } = await supabase
@@ -24,7 +24,9 @@ export function AuthProvider({ children }) {
       }
       setCargando(false)
     })
-    return () => sesion.data.subscription.unsubscribe()
+
+    // Limpieza correcta de la suscripción
+    return () => subscription.unsubscribe()
   }, [])
 
   const iniciarSesion = async (correo, contraseña) => {
