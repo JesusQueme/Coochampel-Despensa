@@ -1,0 +1,160 @@
+:root {
+  --azul-oscuro: #006666;
+  --azul-claro: #99d6ff;
+  --verde: #66b333;
+  --amarillo: #e6e600;
+  --fondo: #e6f3ff;
+  --texto: #333;
+  --blanco: #fff;
+  --alerta: #ff9800;
+  --peligro: #d32f2f;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background: var(--fondo); color: var(--texto); }
+
+.barra-lateral {
+  width: 250px;
+  background: var(--azul-oscuro);
+  color: white;
+  min-height: 100vh;
+  padding: 1.5rem;
+  position: fixed;
+}
+
+.barra-lateral .logo {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.barra-lateral a, .barra-lateral button {
+  display: block;
+  color: white;
+  padding: 0.75rem 1rem;
+  margin: 0.25rem 0;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.barra-lateral a:hover, .barra-lateral a.activo, .barra-lateral button:hover {
+  background: var(--verde);
+}
+
+.contenido {
+  margin-left: 250px;
+  padding: 2rem;
+}
+
+.alerta-vencimiento {
+  background: var(--amarillo);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.alerta-vencimiento ul { margin: 0.5rem 0 0 1.5rem; }
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tarjeta {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tarjeta .numero {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--verde);
+  margin-top: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 1rem 0;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th { background: var(--azul-claro); color: #003333; }
+
+input, select, button {
+  padding: 0.6rem;
+  margin: 0.3rem;
+  border: 2px solid var(--azul-claro);
+  border-radius: 0.4rem;
+  font-size: 0.95rem;
+}
+
+button {
+  background: var(--azul-oscuro);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover { background: #008888; }
+button.verde { background: var(--verde); }
+button.rojo { background: var(--peligro); }
+
+.grupo-form { margin-bottom: 1rem; }
+label { display: block; margin-bottom: 0.3rem; font-weight: 500; }
+
+.login-pagina {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fondo);
+}
+
+.login-tarjeta {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.error {
+  background: #ffe6e6;
+  color: var(--peligro);
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.notificacion {
+  background: #e3f2fd;
+  border-left: 4px solid var(--azul-oscuro);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
